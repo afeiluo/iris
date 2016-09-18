@@ -1,4 +1,4 @@
-package com.afeiluo.nio;
+package com.afeiluo.nio.tcp;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

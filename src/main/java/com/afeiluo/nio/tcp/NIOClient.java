@@ -1,4 +1,4 @@
-package com.afeiluo.nio;
+package com.afeiluo.nio.tcp;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -46,7 +46,7 @@ public class NIOClient {
     public void listen() throws IOException {
         // 轮询访问selector
         while (true) {
-            selector.select();//这里并没有阻塞
+            selector.select();//没有感兴趣的时间会一直阻塞
             // 获得selector中选中的项的迭代器
             Iterator ite = this.selector.selectedKeys().iterator();
             while (ite.hasNext()) {
