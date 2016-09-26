@@ -12,6 +12,7 @@ import java.nio.channels.FileChannel;
 public class GetChannel {
     public static final int BSIZE = 1024;
 
+//看一下不同的地方
     public static void main(String[] args) {
         try {
             FileChannel fc = new FileOutputStream("data.txt").getChannel();
