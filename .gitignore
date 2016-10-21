@@ -3,3 +3,5 @@
 /.idea
 *.dat
 *.tmp
+.project
+.DS_Store
