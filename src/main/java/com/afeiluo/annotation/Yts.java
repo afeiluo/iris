@@ -13,7 +13,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Yts {
     public enum YtsType {util, entity, service, model}
-    
+
 
     public YtsType classType() default YtsType.util;
 }

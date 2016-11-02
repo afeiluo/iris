@@ -199,7 +199,7 @@ public class SelfExpiringHashMap<K, V> implements SelfExpiringMap<K, V> {
     }
 
     private void cleanup() {
-        ExpiringKey<K> delayedKey = delayQueue.poll();
+        ExpiringKey<K> delayedKey = delayQueue.poll();//从队列中来处过期的key
         while (delayedKey != null) {
             internalMap.remove(delayedKey.getKey());
             expiringKeys.remove(delayedKey.getKey());
