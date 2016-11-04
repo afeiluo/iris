@@ -14,7 +14,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
         System.out.println("这是InstantiationAwareBeanPostProcessorAdapter实现类构造器！！");
     }
 
-    // 接口方法、实例化Bean之前调用
+    // 对已经实例化的对象进行一些装饰
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass, String beanName) throws BeansException {
 
