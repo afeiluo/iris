@@ -11,7 +11,7 @@
 * 
 
 ## 算法
-* [汉罗塔问题]{https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/algorithm/Hanota.java}
+* [汉罗塔问题](https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/algorithm/Hanota.java)
 * 水仙花数
 
 ## 框架、工具
