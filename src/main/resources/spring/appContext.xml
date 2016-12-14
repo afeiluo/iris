@@ -22,15 +22,5 @@
 
 	<context:component-scan base-package="com.afeiluo.spring" />
 	<context:property-placeholder location="classpath*:spring.properties" />
-	<!-- <util:properties id="settings" location="classpath*:spring.properties" 
-		/> Enable handling of java.util.logging through SLF4J <bean id="slf4JBridgeHandler" 
-		class="org.slf4j.bridge.SLF4JBridgeHandler" init-method="removeHandlersForRootLogger" 
-		/> <bean class="org.slf4j.bridge.SLF4JBridgeHandler" init-method="install" 
-		depends-on="slf4JBridgeHandler" /> <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource"> 
-		<property name="basename" value="classpath:I18N/message" /> <property name="defaultEncoding" 
-		value="UTF-8" /> <property name="cacheSeconds" value="30" /> <property name="useCodeAsDefaultMessage" 
-		value="true" /> </bean> -->
-	<!-- <bean id="person" class="com.afeiluo.spring.Person" init-method="myInit" 
-		destroy-method="myDestory"> <property name="name" value="fdsf"> </property> 
-		</bean> -->
+	
 </beans>
