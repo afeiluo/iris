@@ -1,5 +1,8 @@
 package com.afeiluo.spring.mongodb;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "person_info")
 public class Person {
 
     private String id;

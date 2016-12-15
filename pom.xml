@@ -12,7 +12,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework_ver>4.1.6.RELEASE</springframework_ver>
+		<springframework_ver>4.3.4.RELEASE</springframework_ver>
+		<spring-data-mongodb>1.9.3.RELEASE</spring-data-mongodb>
 		<slf4j_ver>1.7.5</slf4j_ver>
 		<logback_ver>1.0.13</logback_ver>
 
@@ -134,7 +135,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.8.0.RELEASE</version>
+			<version>${spring-data-mongodb}</version>
 		</dependency>
 		<!-- Logging -->
 		<dependency>
@@ -257,4 +258,7 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>?</module>
+	</modules>
 </project>

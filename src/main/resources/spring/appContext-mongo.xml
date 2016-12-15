@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/context
-          http://www.springframework.org/schema/context/spring-context-3.0.xsd
-          http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+          http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/data/mongo  http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
           http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<context:property-placeholder location="classpath*:mongo.properties" />
 	<mongo:mongo host="${mongo.host}" port="${mongo.port}">
@@ -21,8 +21,24 @@
 	<mongo:db-factory dbname="${mongo.database}"
 		mongo-ref="mongo" username="${mongo.username}" password="${mongo.password}" />
 
+	<!-- <mongo:mapping-converter type-mapper-ref="customMongoTypeMapper" id="mongoMappingConverter" 
+		/> -->
+	<!-- <bean name="customMongoTypeMapper" class="com.afeiluo.spring.mongodb.CustomMongoTypeMapper" 
+		/> -->
+	<mongo:mapping-converter base-package="com.afeiluo.spring.mongodb">
+		<mongo:custom-converters>
+			<mongo:converter ref="readConverter"></mongo:converter>
+			<mongo:converter>
+				<bean class="com.afeiluo.spring.mongodb.PersonWriteConverter" />
+			</mongo:converter>
+		</mongo:custom-converters>
+	</mongo:mapping-converter>
+	<bean id="readConverter" class="com.afeiluo.spring.mongodb.PersonReadConverter" />
+
 	<bean id="anotherMongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+		<constructor-arg name="mongoConverter" ref="mappingConverter"></constructor-arg>
 	</bean>
-
+	<bean
+		class="org.springframework.data.mongodb.core.mapping.event.LoggingEventListener" />
 </beans>

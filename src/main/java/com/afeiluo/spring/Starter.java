@@ -14,6 +14,7 @@ public class Starter {
         context.start();
         context.registerShutdownHook();
         MongoDbService mongoService = (MongoDbService) context.getBean("mongoDbService");
-        mongoService.insert();
+        // mongoService.curd();
+        mongoService.findAndUpdate();
     }
 }
