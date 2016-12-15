@@ -22,6 +22,7 @@
 * [根据ip解析位置信息的工具](https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/util/IpParseUtil.java)
 * [根据经纬度计算距离](https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/util/EarthDistanceUtil.java)
 * [Spring 生命周期](https://github.com/afeiluo/test_tech/tree/master/src/main/java/com/afeiluo/spring)
+* [Spring-data-mongodb]((https://github.com/afeiluo/test_tech/tree/master/src/main/java/com/afeiluo/spring))
 
 ## AnjularJs
 
