@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,7 +12,8 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop.xsd">
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+	    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd ">
 
 	<!-- ======================================================================== -->
 	<!-- Spring bootstrap config, only use this file in code should be sufficient -->
@@ -20,7 +21,22 @@
 
 	<import resource="classpath*:spring/appContext-*.xml" />
 
+	<!-- 开启@AspectJ AOP代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- 任务调度器 -->
+	<task:scheduler id="scheduler" pool-size="10" />
+
+	<!-- 任务执行器 -->
+	<task:executor id="executor" pool-size="10" />
+
+	<!--开启注解调度支持 @Async @Scheduled -->
+	<task:annotation-driven executor="executor"
+		scheduler="scheduler" proxy-target-class="true" />
+
 	<context:component-scan base-package="com.afeiluo.spring" />
 	<context:property-placeholder location="classpath*:spring.properties" />
-	
+
+
+	<!-- Spring 事件机制配置 -->
 </beans>

@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-
 abstract public class TaskEventEmitter implements Task, EventEmitter {
     private Map<String, List<EventHandler>> eventHandlerMap = new HashMap<String, List<EventHandler>>();
     final private TaskExecutor executor;
@@ -53,10 +52,10 @@ abstract public class TaskEventEmitter implements Task, EventEmitter {
         if (eventHandlerMap.containsKey(eventName)) {
             List<EventHandler> eventHandlerList = eventHandlerMap.get(eventName);
             for (final EventHandler handler : eventHandlerList) {
-                executor.submit(new Task() {
+                executor.submit(new Task() {// 放一个任务到阻塞队列中去
                     @Override
                     public void execute() {
-                        handler.handle(new EventObject(eventName, TaskEventEmitter.this, args));
+                        handler.handle(new EventObject(eventName, TaskEventEmitter.this, args));// 任务的内容
                     }
                 });
             }

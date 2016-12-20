@@ -27,7 +27,8 @@ class PICalcTask extends TaskEventEmitter {
 
     PICalcTask(TaskExecutor executor, int n) {
         super(executor);
-        if (n < 1) throw new IllegalArgumentException("n must be larger than 0");
+        if (n < 1)
+            throw new IllegalArgumentException("n must be larger than 0");
         this.N = n;
     }
 
@@ -37,6 +38,7 @@ class PICalcTask extends TaskEventEmitter {
 
     @Override
     protected void run() throws Exception {
+        System.out.println("PI PID:" + Thread.currentThread().getId());
         emit("next", 1);
     }
 }

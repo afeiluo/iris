@@ -3,6 +3,7 @@ package com.afeiluo;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,12 +15,6 @@ import com.google.common.collect.Lists;
  */
 public class App {
     public static void main(String[] args) {
-        // HashMap<String, String> testMap = new HashMap<String, String>();
-        // String a = "nihaowoshi";
-        // System.out.println(a.hashCode());
-        // System.out.println("Hello World!");
-        // testTryCatchFinally();
-        // testStr();
         testSort();
     }
 

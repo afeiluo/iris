@@ -6,12 +6,11 @@ package com.afeiluo.event_drive;
 
 import java.io.*;
 
-
 public class IODemo {
     public static void main(String[] args) throws InterruptedException {
         String fileName = "info.txt";
         final TaskManager manager = new TaskManager();
-        manager.start();
+        manager.start();// 调用TaskExecutor executor 循环去取BlockingQueue里面的Task
         TaskExecutor executor = manager.getExecutor();
         Task ioTask = TaskHelper.createIOTask(executor, fileName);
         executor.submit(ioTask);
@@ -25,7 +24,7 @@ class IOTask extends TaskEventEmitter {
     final private String encoding;
 
     public IOTask(TaskExecutor executor, String fileName, String encoding) {
-        super(executor);
+        super(executor);// emit的时候往TaskExecutor 的BlockingQueue里面submit task
         this.fileName = fileName;
         this.encoding = encoding;
     }
@@ -38,9 +37,13 @@ class IOTask extends TaskEventEmitter {
         return encoding;
     }
 
+    /**
+     * 被 TaskEventEmitter 的excute方法调用
+     */
     @Override
     protected void run() throws Exception {
-        InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);//rescource目录下
+        System.out.println("IOTASK PID:" + Thread.currentThread().getId());
+        InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);// rescource目录下
 
         if (fis != null) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis, encoding));
