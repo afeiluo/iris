@@ -1,0 +1,5 @@
+namespace java com.afeiluo.thrift.test
+
+serivce TestService{
+	i64 ping();
+}
