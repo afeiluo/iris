@@ -1,4 +1,4 @@
-package com.afeiluo.thrift.server;
+package com.afeiluo.thrift.swift.server;
 
 import static java.util.concurrent.Executors.newCachedThreadPool;
 import static java.util.concurrent.Executors.newFixedThreadPool;
@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 
 import org.junit.Assert;
 
-import com.afeiluo.thrift.inter.impl.TestServiceImpl;
+import com.afeiluo.thrift.swift.inter.impl.TestServiceImpl;
 import com.facebook.nifty.core.NettyServerConfig;
 import com.facebook.nifty.core.ThriftServerDef;
 import com.facebook.swift.codec.ThriftCodecManager;

@@ -1,7 +1,7 @@
-package com.afeiluo.thrift.inter.impl;
+package com.afeiluo.thrift.swift.inter.impl;
 
-import com.afeiluo.thrift.inter.Person;
-import com.afeiluo.thrift.inter.TestService;
+import com.afeiluo.thrift.swift.inter.Person;
+import com.afeiluo.thrift.swift.inter.TestService;
 
 public class TestServiceImpl implements TestService {
 

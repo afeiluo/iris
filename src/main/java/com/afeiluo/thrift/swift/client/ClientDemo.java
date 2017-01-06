@@ -1,7 +1,8 @@
-package com.afeiluo.thrift.client;
+package com.afeiluo.thrift.swift.client;
 
 import static com.google.common.net.HostAndPort.fromParts;
-import com.afeiluo.thrift.inter.TestService;
+
+import com.afeiluo.thrift.swift.inter.TestService;
 import com.facebook.nifty.client.FramedClientConnector;
 import com.facebook.swift.service.ThriftClientManager;
 

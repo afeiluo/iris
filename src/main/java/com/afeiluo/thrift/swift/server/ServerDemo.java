@@ -1,4 +1,4 @@
-package com.afeiluo.thrift.server;
+package com.afeiluo.thrift.swift.server;
 
 import com.facebook.swift.service.ThriftServer;
 

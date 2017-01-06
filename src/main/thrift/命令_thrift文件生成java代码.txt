@@ -1,0 +1,4 @@
+以生成tuna-fans-base.thrift为例，手动新建文件夹tuna-fans-base，然后根据想要的thrfit版本生成java类：
+
+thrift-0.6.1.exe --gen java -o .\tuna-fans-base tuna-fans-base.thrift
+thrift-0.9.0.exe --gen java -o .\tuna-fans-base tuna-fans-base.thrift

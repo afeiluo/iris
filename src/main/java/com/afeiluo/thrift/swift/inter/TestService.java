@@ -1,13 +1,12 @@
-package com.afeiluo.thrift.inter;
+package com.afeiluo.thrift.swift.inter;
 
 /**
  * 使用 maven插件 swift:generate 来生成
  */
-import com.facebook.swift.codec.*;
-import com.facebook.swift.service.*;
+import com.facebook.swift.codec.ThriftField;
+import com.facebook.swift.service.ThriftMethod;
+import com.facebook.swift.service.ThriftService;
 import com.google.common.util.concurrent.ListenableFuture;
-import java.io.*;
-import java.util.*;
 
 @ThriftService("TestService")
 public interface TestService {
