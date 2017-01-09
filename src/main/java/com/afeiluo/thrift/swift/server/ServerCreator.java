@@ -35,13 +35,13 @@ public class ServerCreator {
         return server;
     }
 
-    public ServerCreator invoke() {
+    public ServerCreator invoke(int port) {
         ThriftServiceProcessor processor = new ThriftServiceProcessor(new ThriftCodecManager(), ImmutableList.<ThriftEventHandler> of(),
                 new TestServiceImpl());
 
         taskWorkerExecutor = newFixedThreadPool(1);
 
-        ThriftServerDef serverDef = ThriftServerDef.newBuilder().listen(12345).withProcessor(processor).using(taskWorkerExecutor).build();
+        ThriftServerDef serverDef = ThriftServerDef.newBuilder().listen(port).withProcessor(processor).using(taskWorkerExecutor).build();
 
         bossExecutor = newCachedThreadPool();
         ioWorkerExecutor = newCachedThreadPool();
