@@ -5,16 +5,23 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
 
 import java.util.concurrent.ExecutorService;
 
+import org.apache.thrift.TProcessor;
 import org.junit.Assert;
 
+import com.afeiluo.thrift.swift.inter.TestService;
 import com.afeiluo.thrift.swift.inter.impl.TestServiceImpl;
 import com.facebook.nifty.core.NettyServerConfig;
+import com.facebook.nifty.core.NiftyBootstrap;
 import com.facebook.nifty.core.ThriftServerDef;
+import com.facebook.nifty.core.ThriftServerDefBuilder;
+import com.facebook.nifty.guice.NiftyModule;
 import com.facebook.swift.codec.ThriftCodecManager;
 import com.facebook.swift.service.ThriftEventHandler;
 import com.facebook.swift.service.ThriftServer;
 import com.facebook.swift.service.ThriftServiceProcessor;
 import com.google.common.collect.ImmutableList;
+import com.google.inject.Guice;
+import com.google.inject.Stage;
 
 /**
  */

@@ -32,6 +32,7 @@ public class ClientDemo {
             transport.open();
             Person p = client.findPerson(10000L);
             System.out.println("Thrify client result =: " + p);
+            transport.close();
         } catch (TTransportException e) {
             e.printStackTrace();
         } catch (TException e) {

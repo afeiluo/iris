@@ -9,7 +9,7 @@ import com.facebook.swift.service.ThriftService;
 import com.google.common.util.concurrent.ListenableFuture;
 
 @ThriftService("TestService")
-public interface TestService {
+public interface TestService extends AutoCloseable {
     @ThriftService("TestService")
     public interface Async {
         @ThriftMethod(value = "ping")

@@ -17,4 +17,9 @@ public class TestServiceImpl implements TestService {
         p.setName("ddd");
         return p;
     }
+
+    @Override
+    public void close() throws Exception {
+        
+    }
 }

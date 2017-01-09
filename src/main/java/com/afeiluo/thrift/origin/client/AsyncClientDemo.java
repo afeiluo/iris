@@ -45,6 +45,7 @@ public class AsyncClientDemo {
             System.out.println("call method findPerson .... end");
             boolean wait = latch.await(30, TimeUnit.SECONDS);
             System.out.println("latch.await =:" + wait);
+            transport.close();// 注意要close否则server会报强制中断连接的异常
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,4 +84,5 @@ public class AsyncClientDemo {
         AsyncClientDemo client = new AsyncClientDemo();
         client.startClient("Michael");
     }
+
 }
