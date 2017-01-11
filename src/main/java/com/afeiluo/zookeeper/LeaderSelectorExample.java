@@ -1,51 +1,58 @@
 package com.afeiluo.zookeeper;
 
+import com.google.common.collect.Lists;
+import org.apache.curator.utils.CloseableUtils;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+//import org.apache.curator.test.TestingServer;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.utils.CloseableUtils;
-
-import com.google.common.collect.Lists;
-
 public class LeaderSelectorExample {
+    private static final int CLIENT_QTY = 10;
 
-    public static void main(String[] args) {
+    private static final String PATH = "/examples/leader";
+    private static final String CONNECT_STRING = "172.26.40.6:2181,172.26.40.6:2182,172.26.40.6:2183";
+
+    public static void main(String[] args) throws Exception {
+        // all of the useful sample code is in ExampleClient.java
+
+        System.out
+                .println("Create "
+                        + CLIENT_QTY
+                        + " clients, have each negotiate for leadership and then wait a random number of seconds before letting another leader election occur.");
+        System.out.println("Notice that leader election is fair: all clients will become leader and will do so the same number of times.");
+
         List<CuratorFramework> clients = Lists.newArrayList();
-        List<LeaderSelectorClient> examples = Lists.newArrayList();
+        List<SelectExampleClient> examples = Lists.newArrayList();
+        // TestingServer server = new TestingServer();
         try {
-            for (int i = 0; i < 10; i++) {
-                CuratorFramework client = ClientFactory.newClient();
-                LeaderSelectorClient example = new LeaderSelectorClient(client, "Client #" + i);
+            for (int i = 0; i < CLIENT_QTY; ++i) {
+                CuratorFramework client = CuratorFrameworkFactory.newClient(CONNECT_STRING, new ExponentialBackoffRetry(1000, 3));
                 clients.add(client);
+
+                SelectExampleClient example = new SelectExampleClient(client, PATH, "Client #" + i);
                 examples.add(example);
 
                 client.start();
                 example.start();
             }
 
-            System.out.println("----------先观察一会选举的结果-----------");
-            Thread.sleep(10000);
-
-            System.out.println("----------关闭前5个客户端，再观察选举的结果-----------");
-            for (int i = 0; i < 5; i++) {
-                clients.get(i).close();
-            }
-
-            // 这里有个小技巧，让main程序一直监听控制台输入，异步的代码就可以一直在执行。不同于while(ture)的是，按回车或esc可退出
-            // new BufferedReader(new InputStreamReader(System.in)).readLine();
-            while (true) {
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Press enter/return to quit\n");
+            new BufferedReader(new InputStreamReader(System.in)).readLine();
         } finally {
-//            for (LeaderSelectorClient exampleClient : examples) {
-//                CloseableUtils.closeQuietly(exampleClient);
-//            }
-//            for (CuratorFramework client : clients) {
-//                CloseableUtils.closeQuietly(client);
-//            }
+            System.out.println("Shutting down...");
+
+            for (SelectExampleClient exampleClient : examples) {
+                CloseableUtils.closeQuietly(exampleClient);
+            }
+            for (CuratorFramework client : clients) {
+                CloseableUtils.closeQuietly(client);
+            }
+
+            // CloseableUtils.closeQuietly(server);
         }
     }
 }
