@@ -6,8 +6,8 @@ import static org.springframework.data.mongodb.core.query.Update.update;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
@@ -25,7 +25,7 @@ public class MongoDbService {
     @Qualifier("anotherMongoTemplate")
     private MongoTemplate mongoTemplate;
 
-    private static final Log log = LogFactory.getLog(MongoDbService.class);
+    private static final Logger log = LoggerFactory.getLogger(MongoDbService.class);
 
     public void curd() {
         Person p = new Person("ben", 34);
