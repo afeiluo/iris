@@ -7,6 +7,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.afeiluo.bean.Person;
 import com.google.common.collect.Lists;
 
 /**
@@ -41,6 +42,12 @@ public class App {
         province = StringUtils.removeEnd(province, "\"");
         System.out.println("after:" + province);
         // System.out.println(StringUtils.replace(province, "省", ""));
+        Person tp = new Person() {
+            @Override
+            public String toString() {
+                return super.toString();
+            }
+        };
     }
 
     public static void testSort() {
@@ -56,4 +63,5 @@ public class App {
         });
         System.out.println(list);
     }
+
 }
