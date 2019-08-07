@@ -4,9 +4,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.afeiluo</groupId>
-	<artifactId>Test_Tech</artifactId>
+	<artifactId>iris</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>Test_Tech</name>
+	<name>iris</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -199,8 +199,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven_compiler_ver}</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
