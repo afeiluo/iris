@@ -11,7 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework_ver>4.3.18</springframework_ver>
+		<springframework_ver>5.1.9.RELEASE</springframework_ver>
 		<spring-data-mongodb>1.9.3.RELEASE</spring-data-mongodb>
 		<slf4j_ver>1.7.5</slf4j_ver>
 		<logback_ver>1.0.13</logback_ver>
@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>4.1.6.RELEASE</version>
+			<version>5.1.9.RELEASE</version>
 		</dependency>
 		<!-- Spring framework -->
 		<dependency>
