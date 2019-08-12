@@ -78,7 +78,7 @@ public class DistributeLock {
     // 获得锁之后的处理
     private void doSomething() throws Exception {
         try {
-            System.out.println("gain lock:" + thisPath);
+            System.out.println("gain aqs:" + thisPath);
             Thread.sleep(2000);
         } finally {
             System.out.println("finished:" + thisPath);

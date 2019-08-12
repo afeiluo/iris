@@ -9,6 +9,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 /**
+ * https://tech.meituan.com/2016/11/04/nio.html
  * Created by ben on 16/9/14.
  */
 public class NIOClient {

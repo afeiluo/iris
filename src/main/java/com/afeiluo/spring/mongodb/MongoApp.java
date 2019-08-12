@@ -15,10 +15,10 @@ public class MongoApp {
     private static final Logger log = LoggerFactory.getLogger(MongoApp.class);
 
     public static void main(String[] args) throws Exception {
-        UserCredentials uc = new UserCredentials("user2", "666789");
-        MongoOperations mongoOps = new MongoTemplate(new Mongo("172.26.40.6", 27017), "test_tech", uc);
-        mongoOps.insert(new Person("Joe", 34));
-        mongoOps.findOne(new Query(where("name").is("Joe")), Person.class);
+        //UserCredentials uc = new UserCredentials("user2", "666789");
+        //MongoOperations mongoOps = new MongoTemplate(new Mongo("172.26.40.6", 27017), "test_tech", uc);
+        //mongoOps.insert(new Person("Joe", 34));
+        //mongoOps.findOne(new Query(where("name").is("Joe")), Person.class);
         // mongoOps.dropCollection("person");
     }
 }
