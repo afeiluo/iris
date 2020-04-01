@@ -1,4 +1,4 @@
-package com.afeiluo.spring;
+package com.afeiluo.spring.extend;
 
 import java.beans.PropertyDescriptor;
 import org.springframework.beans.BeansException;

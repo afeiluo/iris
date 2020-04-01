@@ -1,0 +1,11 @@
+# initializer
+org.springframework.context.ApplicationContextInitializer=com.afeiluo.springboot.initializer.MyApplicationContextInitializer
+
+# listener
+org.springframework.context.ApplicationListener=com.afeiluo.springboot.listener.MyApplicationListener
+
+org.springframework.boot.SpringApplicationRunListener=com.afeiluo.springboot.listener.MySpringApplicationRunListener
+
+# Auto Configuration Import Listeners
+org.springframework.boot.autoconfigure.AutoConfigurationImportListener=com.afeiluo.springboot.listener.MyAutoConfigurationImportListener
+

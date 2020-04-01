@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- daos -->
+    <bean id = "testDao" class="com.afeiluo.spring.dao.Dao">
+    </bean>
+
+    <bean id="prototypeDao" class="com.afeiluo.spring.dao.PrototypeDao" scope="prototype">
+    </bean>
+
+    <!-- services -->
+    <bean id="testService" name="testAliasService, testAlias2Service" class="com.afeiluo.spring.service.TestService">
+        <property name="dao" ref="testDao"/>
+    </bean>
+
+    <!--bean post processor-->
+    <bean class="com.afeiluo.spring.extend.TracingBeanPostProcessor"/>
+
+    <!-- bean factory post processor-->
+    <bean class="com.afeiluo.spring.extend.MyBeanFactoryPostProcessor"></bean>
+</beans>
