@@ -52,7 +52,7 @@ public class InitialBeans {
     private void registerSingletonWithApplicationContext() {
         GenericApplicationContext context = new GenericApplicationContext();
         context.refresh();
-        context.getBeanFactory().registerSingleton("selfDefBean", new User());
+        context.getBeanFactory().registerSingleton("selfDefBean", new User("tes", 1));
         User user = context.getBean("selfDefBean", User.class);
         System.out.println(user);
     }

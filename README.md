@@ -9,6 +9,20 @@
 * [反射](https://github.com/afeiluo/test_tech/tree/master/src/main/java/com/afeiluo/reflection)
 * [线程池]()
 
+### 新的feature(util)
+* RestTemplate
+* MessageFormatter
+* PageInfo
+* BeanUtils(copyProperties)
+* SecurityContextHolder
+* Preconditions
+* OncePerRequestFilter
+* AuthenticationManager(authenticate)
+* WebSecurityConfigurerAdapter
+* EventBus
+* @Secured
+* ServerEndpointExporter
+
 ## 算法
 * [汉罗塔问题](https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/algorithm/Hanota.java)
 * [水仙花数](https://github.com/afeiluo/test_tech/blob/master/src/main/java/com/afeiluo/algorithm/Narcissus.java)

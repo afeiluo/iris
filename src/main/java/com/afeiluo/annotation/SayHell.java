@@ -15,5 +15,4 @@ public class SayHell {
             System.out.println(name + " say hello world");
         }
     }
-
 }

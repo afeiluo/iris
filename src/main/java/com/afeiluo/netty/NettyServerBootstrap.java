@@ -27,9 +27,7 @@ public class NettyServerBootstrap {
         EventLoopGroup worker = new NioEventLoopGroup();
 
         try {
-
             ServerBootstrap bootstrap = new ServerBootstrap();
-
             bootstrap.group(boss, worker);
             bootstrap.channel(NioServerSocketChannel.class);
             bootstrap.option(ChannelOption.SO_BACKLOG, 1024); // 连接数
