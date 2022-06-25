@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework_ver>5.1.9.RELEASE</springframework_ver>
         <springboot_ver>2.1.7.RELEASE</springboot_ver>
-        <spring-data-mongodb>2.1.10.RELEASE</spring-data-mongodb>
+        <spring-data-mongodb>3.3.5</spring-data-mongodb>
         <jdk_ver>1.7</jdk_ver>
         <maven_ver>3.0</maven_ver>
         <maven_compiler_ver>3.1</maven_compiler_ver>
